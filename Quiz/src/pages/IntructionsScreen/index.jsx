@@ -1,10 +1,20 @@
-
-
 export default function InstructionsScreen({ setScreen }) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white px-4">
-        <h1 className="text-4xl font-bold mb-6">Instruções do Jogo</h1>
-        <div className="text-lg leading-relaxed max-w-2xl text-center">
+        <h1
+          className="font-bold mb-6 text-center"
+          style={{
+            fontSize: 'clamp(2rem, 4vw, 5rem)', // Responsividade para títulos maiores em telas grandes
+          }}
+        >
+          Instruções do Jogo
+        </h1>
+        <div
+          className="leading-relaxed max-w-2xl text-center"
+          style={{
+            fontSize: 'clamp(1rem, 1.5vw, 2rem)', // Responsividade para o texto de instrução
+          }}
+        >
           <p className="mb-4">
             Bem-vindo ao nosso jogo interativo! Aqui você terá a chance de aprender e testar seus conhecimentos em um quiz divertido.
           </p>
@@ -20,10 +30,17 @@ export default function InstructionsScreen({ setScreen }) {
         </div>
         <button
           onClick={() => setScreen(3)}  // Vai para a tela de Quiz
-          className="mt-8 px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-700 transition duration-300"
+          className="mt-8 rounded-lg transition duration-300"
+          style={{
+            padding: 'clamp(0.5rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)', // Responsividade para o botão
+            fontSize: 'clamp(1rem, 2vw, 1.5rem)', // Ajuste do tamanho da fonte do botão
+            backgroundColor: '#22c55e',
+            color: 'white',
+          }}
         >
           Iniciar Quiz
         </button>
       </div>
     );
   }
+  

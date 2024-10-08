@@ -57,13 +57,15 @@ export default function QuizScreen({ setScreen }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-bold mb-4">{questions[currentQuestion].question}</h1>
-      <div className="flex flex-col space-y-2">
+      <h1 className="font-bold mb-4 text-center" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+        {questions[currentQuestion].question}
+      </h1>
+      <div className="flex flex-col space-y-4 w-full max-w-md"> {/* Define um max-width para o layout */}
         {questions[currentQuestion].options.map((option, index) => {
           const isCorrect = index === questions[currentQuestion].answer;
           const isSelected = userAnswers[currentQuestion] === index;
           const buttonClasses = `
-            px-28 py-5 rounded-lg transition duration-300
+            w-full px-8 py-4 rounded-lg transition duration-300
             ${isAnswered && isCorrect ? 'bg-green-500 text-white' : ''}
             ${isAnswered && isSelected && !isCorrect ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'}
             ${isAnswered ? 'opacity-75' : 'hover:bg-blue-700'}
